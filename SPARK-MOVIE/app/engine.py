@@ -73,12 +73,12 @@ class Model:
         df = datas.ratings.drop("timestamp")
         als = ALS(maxIter=5, rank=4, regParam=0.01, userCol='userID', itemCol='movieID', ratingCol='rating', coldStartStrategy='drop')
         self.model = als.fit(df)
-        self.save_model(self.path)
+        # self.save_model(self.path)
         self.recommandation(datas,5)
 
-    def save_model(self,path):
-        print("save model...")
-        self.model.write().overwrite().save(path)
+    # def save_model(self,path):
+    #     print("save model...")
+    #     self.model.write().overwrite().save(path)
 
 # def train_model(datas):
 #     print("train model...")
